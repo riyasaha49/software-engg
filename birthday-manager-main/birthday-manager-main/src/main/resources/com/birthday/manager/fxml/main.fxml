@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.birthday.manager.controller.MainController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <!-- Title -->
+         <Label alignment="CENTER" maxWidth="1.7976931348623157E308" styleClass="title-label"
+                text="জন্মদিন পরিচালনা সিস্টেম">
+            <font>
+               <Font size="24.0"/>
+            </font>
+            <VBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </VBox.margin>
+         </Label>
+
+         <!-- Search Section -->
+         <HBox alignment="CENTER_LEFT" spacing="10.0" styleClass="search-section">
+            <padding>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+            <Label text="নাম খুঁজুন:"/>
+            <TextField fx:id="searchNameField" prefWidth="150.0" promptText="নাম লিখুন..."/>
+
+            <Label text="মাস:"/>
+            <ComboBox fx:id="monthComboBox" prefWidth="120.0"/>
+
+            <Button fx:id="searchButton" styleClass="primary-button" text="খুঁজুন"/>
+            <Button fx:id="showAllButton" styleClass="secondary-button" text="সব দেখান"/>
+
+            <Separator orientation="VERTICAL"/>
+
+            <Button fx:id="upcomingButton" styleClass="info-button" text="আসন্ন জন্মদিন"/>
+            <Button fx:id="todayButton" styleClass="success-button" text="আজকের জন্মদিন"/>
+         </HBox>
+      </VBox>
+   </top>
+   
+   <center>
+      <SplitPane dividerPositions="0.6" BorderPane.alignment="CENTER">
+         <!-- Table Section -->
+         <VBox>
+            <Label styleClass="section-title" text="সহপাঠীদের তালিকা">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </VBox.margin>
+            </Label>
+
+            <TableView fx:id="classmateTable" VBox.vgrow="ALWAYS">
+               <columns>
+                  <TableColumn fx:id="nameColumn" prefWidth="200.0" text="নাম"/>
+                  <TableColumn fx:id="birthDateColumn" prefWidth="120.0" text="জন্ম তারিখ"/>
+                  <TableColumn fx:id="emailColumn" prefWidth="180.0" text="ইমেইল"/>
+                  <TableColumn fx:id="phoneColumn" prefWidth="120.0" text="ফোন"/>
+               </columns>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </VBox.margin>
+            </TableView>
+         </VBox>
+
+         <!-- Form Section -->
+         <VBox spacing="10.0">
+            <Label styleClass="section-title" text="সহপাঠীর তথ্য">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               </VBox.margin>
+            </Label>
+
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+               <VBox spacing="15.0">
+                  <padding>
+                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+                  </padding>
+                  <!-- Name Field -->
+                  <VBox spacing="5.0">
+                     <Label styleClass="field-label" text="নাম *"/>
+                     <TextField fx:id="nameField" promptText="সহপাঠীর নাম লিখুন..."/>
+                  </VBox>
+
+                  <!-- Birth Date Field -->
+                  <VBox spacing="5.0">
+                     <Label styleClass="field-label" text="জন্ম তারিখ *"/>
+                     <DatePicker fx:id="birthDatePicker" maxWidth="1.7976931348623157E308"
+                                 promptText="তারিখ নির্বাচন করুন..."/>
+                  </VBox>
+
+                  <!-- Email Field -->
+                  <VBox spacing="5.0">
+                     <Label styleClass="field-label" text="ইমেইল"/>
+                     <TextField fx:id="emailField" promptText="ইমেইল ঠিকানা..."/>
+                  </VBox>
+
+                  <!-- Phone Field -->
+                  <VBox spacing="5.0">
+                     <Label styleClass="field-label" text="ফোন নম্বর"/>
+                     <TextField fx:id="phoneField" promptText="ফোন নম্বর..."/>
+                  </VBox>
+
+                  <!-- Notes Field -->
+                  <VBox spacing="5.0" VBox.vgrow="ALWAYS">
+                     <Label styleClass="field-label" text="মন্তব্য"/>
+                     <TextArea fx:id="notesArea" prefRowCount="4" promptText="অতিরিক্ত তথ্য..."
+                               wrapText="true"/>
+                  </VBox>
+
+                  <!-- Buttons -->
+                  <VBox spacing="10.0">
+                     <HBox spacing="10.0">
+                        <Button fx:id="addButton" maxWidth="1.7976931348623157E308"
+                                styleClass="primary-button" text="যোগ করুন" HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="updateButton" maxWidth="1.7976931348623157E308"
+                                styleClass="warning-button" text="আপডেট করুন" HBox.hgrow="ALWAYS"/>
+                     </HBox>
+
+                     <HBox spacing="10.0">
+                        <Button fx:id="deleteButton" maxWidth="1.7976931348623157E308"
+                                styleClass="danger-button" text="মুছে ফেলুন" HBox.hgrow="ALWAYS"/>
+                        <Button fx:id="clearButton" maxWidth="1.7976931348623157E308"
+                                styleClass="secondary-button" text="পরিষ্কার করুন" HBox.hgrow="ALWAYS"/>
+                     </HBox>
+                  </VBox>
+               </VBox>
+            </ScrollPane>
+         </VBox>
+      </SplitPane>
+   </center>
+   
+   <bottom>
+      <HBox alignment="CENTER_LEFT" styleClass="status-bar">
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0"/>
+         </padding>
+         <Label fx:id="statusLabel" text="প্রস্তুত"/>
+      </HBox>
+   </bottom>
+</BorderPane>
