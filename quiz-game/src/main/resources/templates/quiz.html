@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Game</title>
+    <script>
+        let timer = 600;
+        function startTimer() {
+            const interval = setInterval(function () {
+                let minutes = Math.floor(timer / 60);
+                let seconds = timer % 60;
+                document.getElementById("timer").innerText = minutes + "m " + seconds + "s";
+                timer--;
+                if (timer < 0) {
+                    clearInterval(interval);
+                    document.getElementById("quizForm").submit();
+                }
+            }, 1000);
+        }
+        window.onload = startTimer;
+    </script>
+</head>
+<body>
+    <h1>World Famous Things Quiz</h1>
+    <div><b>Time Left:</b> <span id="timer">10m 0s</span></div>
+    <form id="quizForm" th:action="@{/submit}" method="post">
+        <div th:each="question : ${questions}">
+            <p><b th:text="${question.questionText}"></b></p>
+            <label><input type="radio" th:name="'q' + ${question.id}" th:value="${question.optionA}"/> <span th:text="${question.optionA}"></span></label><br>
+            <label><input type="radio" th:name="'q' + ${question.id}" th:value="${question.optionB}"/> <span th:text="${question.optionB}"></span></label><br>
+            <label><input type="radio" th:name="'q' + ${question.id}" th:value="${question.optionC}"/> <span th:text="${question.optionC}"></span></label><br>
+            <label><input type="radio" th:name="'q' + ${question.id}" th:value="${question.optionD}"/> <span th:text="${question.optionD}"></span></label><br>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

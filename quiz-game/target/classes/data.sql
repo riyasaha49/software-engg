@@ -1,0 +1,16 @@
+INSERT INTO question (question_text, option_a, option_b, option_c, option_d, correct_answer) VALUES
+('What is the capital of France?', 'Berlin', 'Madrid', 'Paris', 'Lisbon', 'Paris'),
+('Who painted the Mona Lisa?', 'Van Gogh', 'Da Vinci', 'Picasso', 'Rembrandt', 'Da Vinci'),
+('Which is the tallest mountain in the world?', 'K2', 'Kangchenjunga', 'Everest', 'Makalu', 'Everest'),
+('Which country is famous for sushi?', 'China', 'Thailand', 'Japan', 'Vietnam', 'Japan'),
+('The Colosseum is located in which city?', 'Athens', 'Rome', 'Paris', 'Istanbul', 'Rome'),
+('Which river flows through London?', 'Seine', 'Thames', 'Danube', 'Nile', 'Thames'),
+('Which animal is known as the King of the Jungle?', 'Tiger', 'Lion', 'Leopard', 'Elephant', 'Lion'),
+('Where is the Great Wall located?', 'India', 'China', 'Russia', 'Korea', 'China'),
+('Who discovered penicillin?', 'Einstein', 'Newton', 'Fleming', 'Tesla', 'Fleming'),
+('Which ocean is the largest?', 'Atlantic', 'Indian', 'Arctic', 'Pacific', 'Pacific'),
+('Which city has the Eiffel Tower?', 'London', 'Paris', 'New York', 'Berlin', 'Paris'),
+('What is the currency of Japan?', 'Yuan', 'Won', 'Yen', 'Dollar', 'Yen'),
+('Which planet is known as the Red Planet?', 'Earth', 'Mars', 'Jupiter', 'Venus', 'Mars'),
+('Which festival is known as the Festival of Lights?', 'Holi', 'Eid', 'Diwali', 'Christmas', 'Diwali'),
+('Who wrote Hamlet?', 'Hemingway', 'Chaucer', 'Shakespeare', 'Austen', 'Shakespeare');

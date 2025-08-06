@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Quiz Result</title></head>
+<body>
+<h2>Your Score: <span th:text="${score}"></span> out of <span th:text="${total}"></span></h2>
+<h3>Review of Wrong Answers:</h3>
+<div th:utext="${result}"></div>
+</body>
+</html>
